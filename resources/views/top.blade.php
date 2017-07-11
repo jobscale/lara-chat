@@ -79,9 +79,15 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Communications
                 </div>
 
+                <form method="POST" action="channel">
+                    {{ csrf_field() }}
+                    name <input name="name">
+                    password <input type="password" name="password">
+                    <input type="submit" value="regist channel">
+                </form>
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
