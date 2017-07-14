@@ -14,3 +14,6 @@
 Route::resource('', 'TopController');
 Route::resource('channel', 'ChannelController');
 
+Route::get('skil', function () {
+        return view('skil');
+});
