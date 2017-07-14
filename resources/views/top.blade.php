@@ -20,35 +20,32 @@
                 height: 100vh;
                 margin: 0;
             }
-
             .full-height {
                 height: 100vh;
             }
-
             .flex-center {
                 align-items: center;
                 display: flex;
                 justify-content: center;
             }
-
             .position-ref {
                 position: relative;
             }
-
             .top-right {
                 position: absolute;
                 right: 10px;
-                top: 18px;
+                top: 1.5em;
             }
-
+            .status-area {
+                position: absolute;
+                top: 4em;
+            }
             .content {
                 text-align: center;
             }
-
             .title {
                 font-size: 84px;
             }
-
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -58,7 +55,6 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
-
             .m-b-md {
                 margin-bottom: 30px;
             }
@@ -77,11 +73,28 @@
                 </div>
             @endif
 
+            @if (count($errors))
+            <div class="status-area links">
+                <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+                </ul>
+            </div>
+            @endif
+
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Communications
                 </div>
 
+                <form method="POST" action="channel">
+                    {{ csrf_field() }}
+                    name <input name="name">
+                    password <input type="password" name="password">
+                    password confirmation <input type="password" name="password_confirmation">
+                    <input type="submit" value="regist channel">
+                </form>
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>

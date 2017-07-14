@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('', 'TopController');
+Route::resource('channel', 'ChannelController');
+
